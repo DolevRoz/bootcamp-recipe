@@ -20,15 +20,21 @@
     <script id="recipeTemplate" type="text/x-handlebars-template">
         {{#each .}}
         <div class="recipe">
-            <div>{{title}}</div>
+            <a href="{{href}}">{{title}}</a>
             <img src="{{thumbnail}}" alt="">
-            <div id="ingList">{{ingredients}}</div>
+            <span>Ingredients:</span>
+            <ul>
+                {{#each ingredients as |item|}}
+                <li>{{item}}</li>
+                {{/each}}
+            </ul>
         </div>
         {{/each}}
     </script>
 
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>
+    <script src="Renderer.js"></script>
     <script src="main.js"></script>
 </body>
 

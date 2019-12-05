@@ -15,15 +15,13 @@ app.get('/recipes/:ingredient', (request1, response) => {
     
     request(`https://recipes-goodness.herokuapp.com/recipes/${wantedIngredient}`, (err, res, body) => {
         if(err) {
-            console.log('error');
+            console.log('ERROR');
         } else {
-            let data = JSON.parse(body).results;            
-            let data1 = data.map(d => ({ title: d.title, thumbnail: d.thumbnail, ingredients: d.ingredients}));
-            response.send(data1);
+            let data = JSON.parse(body).results.map(d => ({ title: d.title, thumbnail: d.thumbnail, ingredients: d.ingredients, href: d.href}));            
+            response.send(data);
         }
     })
 })
-
 
 const port = 8080;
 app.listen(port, function () {

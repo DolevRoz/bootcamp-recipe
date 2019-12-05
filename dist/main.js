@@ -1,15 +1,12 @@
+const renderer = new Renderer;
 
 $('#btn').on('click', function () {
     let ing = $('#ingInput').val();
     $.get(`/recipes/${ing}`, (data) => {
-        render(data);
+        renderer.render(data);
     })
 })
 
-const source = $('#recipeTemplate').html();
-const template = Handlebars.compile(source);
-
-let render = function (data) {
-    const newHtml = template(data);
-    $('.recipeContainer').append(newHtml);
-}
+$('.recipeContainer').on('click', 'img', function(){
+    console.log($(this).closest('div').find('li').first().text())
+})
