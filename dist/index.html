@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootcamp Proficiency Exam</title>
+</head>
+
+<body>
+
+    <div>
+        <input id="ingInput" type="text" placeholder="Ingredient">
+        <button id="btn">SERACH!</button>
+    </div>
+
+    <div class="recipeContainer"></div>
+
+    <script id="recipeTemplate" type="text/x-handlebars-template">
+        {{#each .}}
+        <div class="recipe">
+            <div>{{title}}</div>
+            <img src="{{thumbnail}}" alt="">
+            <div id="ingList">{{ingredients}}</div>
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
